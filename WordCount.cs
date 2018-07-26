@@ -18,12 +18,12 @@ namespace WordCount
             var delimiter = new char[] { '.', '?', '!', ' ', ';', ':', ',' };
             var source = inputString.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
 
-            // Create the query. Use ToLowerInvariant to match uppercase/lowercase strings.   
+            // matching the words  
             var matchQuery = from word in source
                              where word.ToLowerInvariant() == searchWord.ToLowerInvariant()
                              select word;
 
-            // Count the matches, which executes the query. Return the result.
+            // Count the matches, returns the count.
             return matchQuery.Count();
         }
     }
